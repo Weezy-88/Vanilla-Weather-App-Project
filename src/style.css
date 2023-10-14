@@ -9,3 +9,6 @@
 ul {
   list-style: none;
 }
+.description {
+  text-transform: capitalize;
+}
