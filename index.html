@@ -18,35 +18,39 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100;1,500&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <title>Vanilla Weather App Project</title>
   </head>
   <body>
-    <div class="weatherapp">
-      <div class="container">
+    <div class="container">
+      <div class="weatherapp">
         <div class="row">
           <div class="col">
             <input
               type="search"
               placeholder="Type a city..."
               class="form-control"
+              autocomplete="off"
+              id="city-input"
             />
           </div>
           <div class="col">
             <input type="submit" value="search" />
           </div>
         </div>
-        <h1>London</h1>
+        <h1 id="city">city</h1>
         <div class="row">
           <div class="col-6">
             <ul>
-              <li>Tuesday 16:54</li>
+              <li id="date">Tuesday 16:54</li>
 
-              <li>Clear and Sunny</li>
-              <li>Humidity 12% Wind 83mph</li>
+              <li id="description">Clear and Sunny</li>
+              <li id="humidity">Humidity 12% Wind 83mph</li>
             </ul>
           </div>
-          <div class="col-3">Emoji</div>
-          <div class="col-3">Temperature</div>
+          <div id="icon" class="col-3">Emoji</div>
+          <div id="temperature" class="col-3">Temperature</div>
         </div>
       </div>
       <small>
