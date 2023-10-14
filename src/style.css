@@ -12,3 +12,6 @@ ul {
 .description {
   text-transform: capitalize;
 }
+.icon {
+  max-width: 100px;
+}

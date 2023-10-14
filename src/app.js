@@ -1,3 +1,18 @@
+let now = new Date();
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[now.getDay()];
+let hour = now.getHours();
+let minutes = now.getMinutes();
+let dateElement = document.querySelector("#date");
+dateElement.innerHTML = `${day} ${hour}:${minutes}`;
 function displayTemp(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
@@ -7,9 +22,14 @@ function displayTemp(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
-  let iconElement = document.querySelector("#icon");
-  iconElement.innerHTML = response.data.condition.icon;
+  let windSpeedElement = document.querySelector("#windSpeed");
+  windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
 }
+iconElement = document.querySelector("#icon");
+iconElement.setAttribute(
+  "src",
+  `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png`
+);
 let apiKey = "b2aa1fad6a010fof20ab443f842te386";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query={Paris}}&key=${apiKey}`;
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query={UAE}}&key=${apiKey}`;
 axios.get(apiUrl).then(displayTemp);
