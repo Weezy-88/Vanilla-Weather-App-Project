@@ -25,9 +25,9 @@
   <body>
     <div class="container">
       <div class="weatherapp">
-        <div class="row">
-          <div class="col-9">
-            <form id="search-form" class="mb-3">
+        <form id="search-form" class="mb-3">
+          <div class="row">
+            <div class="col-9">
               <input
                 type="search"
                 placeholder="Type a city..."
@@ -35,32 +35,46 @@
                 autocomplete="off"
                 id="city-input"
               />
-            </form>
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="search"
+                class="btn btn-outline-primary"
+                width="100"
+              />
+            </div>
           </div>
-          <div class="col-3">
-            <input
-              type="submit"
-              value="search"
-              class="btn btn-primary"
-              width="100"
-            />
-          </div>
-        </div>
-        <h1 id="city">city</h1>
+        </form>
+        <h1 id="city">Search for a city</h1>
         <div class="row">
           <div class="col-6">
             <div id="date">Tuesday 12:57</div>
 
             <div class="description" id="description">Clear and Sunny</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <img
+              id="icon"
+              class="icon"
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              alt="weatherimg"
+            />
+          </div>
+          <div class="col-4">
+            <span class="temperature" id="temperature">18</span>°c |
+            <a href="#" id="farenheit">°f</a>
+          </div>
+
+          <div class="col-4">
             <div class="humidity">Humidity: <span id="humidity"></span>%</div>
 
-            <div class="windSpeed"><span id="windSpeed"></span>mph</div>
+            <div class="windSpeed">
+              Windspeed: <span id="windSpeed"></span>mph
+            </div>
           </div>
-
-          <div class="col-3">
-            <img id="icon" class="icon" src="" alt="weatherimg" />
-          </div>
-          <div class="col-3"><span id="temperature"></span>°c</div>
         </div>
 
         <small>
