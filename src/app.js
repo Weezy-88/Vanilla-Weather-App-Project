@@ -14,6 +14,53 @@ let minutes = now.getMinutes();
 let dateElement = document.querySelector("#date");
 dateElement.innerHTML = `${day} ${hour}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = "";
+
+  forecastHTML =
+    forecastHTML +
+    `<div class="row">
+    <div class="col-2">
+              <div class="forecastDay">Thu</div>
+
+              <img
+                src=" https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt=""
+                width="36px"
+              />
+              <br />
+              <div class="forecastTemperatures">
+                <span class="forecastTempMin">12°</span> |
+                <span class="forecastTempMax">16°</span>
+              </div>
+            </div>
+          </div>
+          </div>`;
+  forecastHTML =
+    forecastHTML +
+    `<div class="row">
+            <div class="col-2">
+              <div class="forecastDay">Thu</div>
+
+              <img
+                src=" https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt=""
+                width="36px"
+              />
+              <br />
+              <div class="forecastTemperatures">
+                <span class="forecastTempMin">12°</span> |
+                <span class="forecastTempMax">16°</span>
+              </div>
+            </div>
+            </div>
+          `;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemp(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
@@ -69,3 +116,5 @@ farenheitLink.addEventListener("click", displayFarenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displaycelsiusTemp);
+
+displayForecast();
