@@ -17,32 +17,13 @@ dateElement.innerHTML = `${day} ${hour}:${minutes}`;
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = "";
-
-  forecastHTML =
-    forecastHTML +
-    `<div class="row">
-    <div class="col-2">
-              <div class="forecastDay">Thu</div>
-
-              <img
-                src=" https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt=""
-                width="36px"
-              />
-              <br />
-              <div class="forecastTemperatures">
-                <span class="forecastTempMin">12°</span> |
-                <span class="forecastTempMax">16°</span>
-              </div>
-            </div>
-          </div>
-          </div>`;
-  forecastHTML =
-    forecastHTML +
-    `<div class="row">
-            <div class="col-2">
-              <div class="forecastDay">Thu</div>
+  let forecastHTML = `<div class="row">`;
+  let forecastDays = ["Mon", "Tues", "Weds", "Thurs", "Fri", "Sat"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+              <div class="forecastDay">${day}</div>
 
               <img
                 src=" https://ssl.gstatic.com/onebox/weather/64/sunny.png"
@@ -54,10 +35,11 @@ function displayForecast() {
                 <span class="forecastTempMin">12°</span> |
                 <span class="forecastTempMax">16°</span>
               </div>
-            </div>
             </div>
           `;
+  });
 
+  forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
