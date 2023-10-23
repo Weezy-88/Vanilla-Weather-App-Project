@@ -61,6 +61,8 @@ function displayTemp(response) {
   );
 
   celsiusTemperature = response.data.temperature.current;
+
+  getForecast(response.data.city);
 }
 
 function handleSubmit(event) {
