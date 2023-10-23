@@ -22,25 +22,26 @@ function getForecast(city) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
   let forecastDays = ["Mon", "Tues", "Weds", "Thurs", "Fri", "Sat"];
-  forecastDays.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
-              <div class="forecastDay">${day}</div>
+              <div class="forecastDay">${forecastDay.time}</div>
 
               <img
-                src=" https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                src= "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
                 alt=""
                 width="36px"
               />
               <br />
               <div class="forecastTemperatures">
-                <span class="forecastTempMin">12°</span> |
-                <span class="forecastTempMax">16°</span>
+                <span class="forecastTempMin">${forecastDay.temperature.minimum}°</span> |
+                <span class="forecastTempMax">${forecastDay.temperature.maximum}°°</span>
               </div>
             </div>
           `;
@@ -107,3 +108,5 @@ farenheitLink.addEventListener("click", displayFarenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displaycelsiusTemp);
+
+search("London");
