@@ -14,7 +14,14 @@ let minutes = now.getMinutes();
 let dateElement = document.querySelector("#date");
 dateElement.innerHTML = `${day} ${hour}:${minutes}`;
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "b2aa1fad6a010fof20ab443f842te386";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -100,5 +107,3 @@ farenheitLink.addEventListener("click", displayFarenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displaycelsiusTemp);
-
-displayForecast();
