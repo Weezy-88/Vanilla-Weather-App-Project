@@ -11,6 +11,9 @@ let days = [
 let day = days[now.getDay()];
 let hour = now.getHours();
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 let dateElement = document.querySelector("#date");
 dateElement.innerHTML = `${day} ${hour}:${minutes}`;
 
